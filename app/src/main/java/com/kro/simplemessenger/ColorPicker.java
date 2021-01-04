@@ -1,15 +1,18 @@
 package com.kro.simplemessenger;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
 public class ColorPicker extends AppCompatActivity {
+    private String myColorText = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +46,22 @@ public class ColorPicker extends AppCompatActivity {
         int colorId = getResources().getIdentifier(myId, "color", getPackageName());
         Integer myColor = getResources().getColor(colorId);
 
-        String myColorName = myColor.toString();
-        Toast.makeText(this, myColorName, Toast.LENGTH_SHORT).show();
+        //set the class attribute to remember the selected color
+        myColorText =  getResources().getString(colorId);
+        Toast.makeText(this, myColorText, Toast.LENGTH_SHORT).show();
 
-        view.setBackgroundColor(myColor);
+        //get reference to the parent view and set its color
+        ViewGroup myLayout;
+        myLayout = (ConstraintLayout) view.getParent();
+        myLayout.setBackgroundColor(myColor);
+    }
+
+    /**
+     * save the currently selected color as background
+      * @param view current view element
+     */
+    public void onSaveClick(View view){
+        Toast.makeText(this, myColorText, Toast.LENGTH_SHORT).show();
     }
 
 }
