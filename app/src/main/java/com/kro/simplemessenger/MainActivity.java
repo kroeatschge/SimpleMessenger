@@ -22,6 +22,9 @@ import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
 
 public class MainActivity extends AppCompatActivity {
@@ -70,6 +73,30 @@ public class MainActivity extends AppCompatActivity {
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    /**
+     * handle send click with another APP
+     * Author: Dawn Griffiths & David Griffiths
+     * Date: 2015
+     * Title: Head First Android Development
+     * Source: p.98
+     * @param view current view element
+     */
+    public void onSendClick(View view) {
+        //get message and email
+        String messageText = myMessage.getText().toString();
+        String emailTo[] = new String[1];
+        emailTo[0] = myEmail.getText().toString();
+
+        //setup intent
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        //add messsage and email
+        intent.putExtra(Intent.EXTRA_TEXT, messageText);
+        intent.putExtra(Intent.EXTRA_EMAIL, emailTo);
+        //send intend to android and always show chooser
+        startActivity(Intent.createChooser(intent, getResources().getText(R.string.app_name)));
     }
 
     @Override
