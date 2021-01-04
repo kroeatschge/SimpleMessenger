@@ -60,6 +60,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider2" />
@@ -72,6 +73,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color2"
         app:layout_constraintStart_toEndOf="@+id/color1"
         app:layout_constraintTop_toTopOf="@+id/color1" />
@@ -84,6 +86,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color3"
         app:layout_constraintStart_toEndOf="@+id/color2"
         app:layout_constraintTop_toTopOf="@+id/color2" />
@@ -96,6 +99,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color4"
         app:layout_constraintStart_toEndOf="@+id/color3"
         app:layout_constraintTop_toTopOf="@+id/color3" />
@@ -108,6 +112,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color5"
         app:layout_constraintStart_toEndOf="@+id/color4"
         app:layout_constraintTop_toTopOf="@+id/color4" />
@@ -120,6 +125,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color6"
         app:layout_constraintStart_toEndOf="@+id/color5"
         app:layout_constraintTop_toTopOf="@+id/color5" />
@@ -132,6 +138,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color7"
         app:layout_constraintStart_toEndOf="@+id/color6"
         app:layout_constraintTop_toTopOf="@+id/color6" />
@@ -144,6 +151,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color8"
         app:layout_constraintStart_toEndOf="@+id/color7"
         app:layout_constraintTop_toTopOf="@+id/color7" />
@@ -167,6 +175,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color10"
         app:layout_constraintStart_toEndOf="@+id/color9"
         app:layout_constraintTop_toTopOf="@+id/color9" />
@@ -180,6 +189,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color11"
         app:layout_constraintStart_toEndOf="@+id/color10"
         app:layout_constraintTop_toTopOf="@+id/color10" />
@@ -192,6 +202,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color12"
         app:layout_constraintStart_toEndOf="@+id/color11"
         app:layout_constraintTop_toTopOf="@+id/color11" />
@@ -204,6 +215,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color13"
         app:layout_constraintStart_toEndOf="@+id/color12"
         app:layout_constraintTop_toTopOf="@+id/color12" />
@@ -216,6 +228,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color14"
         app:layout_constraintStart_toEndOf="@+id/color13"
         app:layout_constraintTop_toTopOf="@+id/color13" />
@@ -228,6 +241,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
+        android:onClick="onColorPicker"
         app:backgroundTint="@color/color15"
         app:layout_constraintStart_toEndOf="@+id/color14"
         app:layout_constraintTop_toTopOf="@+id/color14" />
