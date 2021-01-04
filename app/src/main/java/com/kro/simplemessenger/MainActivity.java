@@ -2,22 +2,28 @@ package com.kro.simplemessenger;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.preference.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
     private EditText myEmail;
     private EditText myMessage;
-    private View.OnFocusChangeListener myFocusListener;
+    private ViewGroup mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
          * Source: https://stackoverflow.com/questions/16311609/edittext-setonfocuschangelistener-on-all-edittexts
          */
         //implement OnFocusChangeListener
-        myFocusListener = new View.OnFocusChangeListener() {
+        View.OnFocusChangeListener myFocusListener = new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
@@ -49,6 +55,30 @@ public class MainActivity extends AppCompatActivity {
         //add onFocusChangeListener
         myEmail.setOnFocusChangeListener(myFocusListener);
         myMessage.setOnFocusChangeListener(myFocusListener);
+
+        /**
+         * initialise default values for settings
+         * Author: android.developer.com
+         * Title: Android fundamentals 09.2: App settings
+         * Date: n.d.
+         * Source: https://developer.android.com/codelabs/android-training-adding-settings-to-app#3
+         */
+        PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false);
+        //set the colour taken from settings as background
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String bgColor = sharedPref.getString("backgroundColor", "");
+
+        /**
+         * set backgroundColor of view
+         * Title: Set Background color programmatically
+         * Author: Piyush
+         * Date: 07/05/2014
+         * Source: https://stackoverflow.com/questions/23517879/set-background-color-programmatically
+         */
+        //get reference to the view
+        mainLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
+        mainLayout.setBackgroundColor(Color.parseColor(bgColor));
+
     }
 
 
