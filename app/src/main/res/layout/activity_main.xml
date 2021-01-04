@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     tools:context=".MainActivity">
 
 
@@ -16,6 +18,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.SimpleMessenger.PopupOverlay" />
 

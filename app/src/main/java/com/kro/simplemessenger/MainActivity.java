@@ -27,6 +27,7 @@ import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavControlle
 public class MainActivity extends AppCompatActivity {
     private EditText myEmail;
     private EditText myMessage;
+    private View.OnFocusChangeListener myFocusListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,30 +36,41 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        /**
+         * Author: Ian
+         * Title: EditText setOnFocusChangeListener on all EditTexts
+         * Date: 01/05/2013
+         * Source: https://stackoverflow.com/questions/16311609/edittext-setonfocuschangelistener-on-all-edittexts
+         */
+        //implement OnFocusChangeListener
+        myFocusListener = new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        };
+
+
         //get reference to view
         myEmail = findViewById(R.id.editEmail);
         myMessage = findViewById(R.id.editMessage);
 
         //add onFocusChangeListener
-       //myEmail.setOnFocusChangeListener(onFocusChange());
-
+        myEmail.setOnFocusChangeListener(myFocusListener);
+        myMessage.setOnFocusChangeListener(myFocusListener);
     }
+
 
     /**
-     * hide the keyboard
-     * @param view
+     * hide the keyboard when losing focus
+     * @param view current view element
      */
     public void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
-
-    public void onFocusChange(View view, boolean hasFocus) {
-        if (!hasFocus) {
-            hideKeyboard(view);
-        }
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -81,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
              * Date: 03/12/2019
              * Title: Navigation Component: Cannot find NavController
              */
-           // Navigation.findNavController(this,R.id.nav_host_fragment).navigate(R.id.action_FirstFragment_to_SecondFragment);
+            // Navigation.findNavController(this,R.id.nav_host_fragment).navigate(R.id.action_FirstFragment_to_SecondFragment);
 
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
