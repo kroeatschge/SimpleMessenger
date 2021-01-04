@@ -9,12 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleMessenger">
+        <activity android:name=".ColorPicker"
+            android:label="@string/title_activity_mysettings">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kro.simplemessenger.MainActivity" />
+        </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.kro.simplemessenger.MainActivity"/>
+                android:value="com.kro.simplemessenger.MainActivity" />
         </activity>
         <activity
             android:name=".MainActivity"

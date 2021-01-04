@@ -4,8 +4,15 @@
     tools:context="com.kro.simplemessenger.MainActivity">
     <item
         android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_mysettings"
         android:icon="@drawable/baseline_settings_white_18dp"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="always" />
+
 </menu>

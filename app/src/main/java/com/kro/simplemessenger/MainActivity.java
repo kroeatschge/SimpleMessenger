@@ -181,6 +181,13 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        //show Activity with color picker
+        if (id == R.id.action_mysettings) {
+            Intent intent = new Intent(this, ColorPicker.class);
+            startActivity(intent);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
