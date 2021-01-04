@@ -1,5 +1,6 @@
 package com.kro.simplemessenger;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -18,6 +19,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
     }
 
     @Override
@@ -49,8 +55,13 @@ public class MainActivity extends AppCompatActivity {
              * Date: 03/12/2019
              * Title: Navigation Component: Cannot find NavController
              */
-            Navigation.findNavController(this,R.id.nav_host_fragment).navigate(R.id.action_FirstFragment_to_SecondFragment);
+           // Navigation.findNavController(this,R.id.nav_host_fragment).navigate(R.id.action_FirstFragment_to_SecondFragment);
+
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
             return true;
+
+
         }
 
         return super.onOptionsItemSelected(item);
