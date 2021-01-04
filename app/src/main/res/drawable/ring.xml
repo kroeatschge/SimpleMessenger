@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Author: tachyonflux
+Title: How to create ring shape drawable in android?
+Date: 05/06/2015
+Source: https://stackoverflow.com/questions/30676208/how-to-create-ring-shape-drawable-in-android/30677289
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#4d4d4d" />
+</shape>
+

@@ -10,7 +10,7 @@
     <string name="hint_message">Type your message here...</string>
     <string name="label_email">To:</string>
     <string name="button_send">Send</string>
-    <string name="button_save">Send</string>
+    <string name="button_save">Save</string>
     <string name="desc_plane">a paper plane flying</string>
 
     <string name="check_email">Please enter a valid email address!</string>

@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Portrait"
+    android:id="@+id/landscape"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ColorPicker">
@@ -117,33 +117,36 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
         app:backgroundTint="@color/color6"
-        app:layout_constraintStart_toStartOf="@+id/color1"
-        app:layout_constraintTop_toBottomOf="@+id/color1" />
+        app:layout_constraintStart_toEndOf="@+id/color5"
+        app:layout_constraintTop_toTopOf="@+id/color5" />
 
     <Button
         android:id="@+id/color7"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
         app:backgroundTint="@color/color7"
-        app:layout_constraintStart_toStartOf="@+id/color2"
-        app:layout_constraintTop_toBottomOf="@+id/color2" />
+        app:layout_constraintStart_toEndOf="@+id/color6"
+        app:layout_constraintTop_toTopOf="@+id/color6" />
 
     <Button
         android:id="@+id/color8"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
         app:backgroundTint="@color/color8"
-        app:layout_constraintStart_toStartOf="@+id/color3"
-        app:layout_constraintTop_toBottomOf="@+id/color3" />
+        app:layout_constraintStart_toEndOf="@+id/color7"
+        app:layout_constraintTop_toTopOf="@+id/color7" />
 
     <Button
         android:id="@+id/color9"
@@ -153,19 +156,20 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/ring"
         app:backgroundTint="@color/color9"
-        app:layout_constraintStart_toStartOf="@+id/color4"
-        app:layout_constraintTop_toBottomOf="@+id/color4" />
+        app:layout_constraintStart_toStartOf="@+id/color1"
+        app:layout_constraintTop_toBottomOf="@+id/color1" />
 
     <Button
         android:id="@+id/color10"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
         app:backgroundTint="@color/color10"
-        app:layout_constraintStart_toStartOf="@+id/color5"
-        app:layout_constraintTop_toBottomOf="@+id/color5" />
+        app:layout_constraintStart_toEndOf="@+id/color9"
+        app:layout_constraintTop_toTopOf="@+id/color9" />
 
 
     <Button
@@ -173,54 +177,59 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
         app:backgroundTint="@color/color11"
-        app:layout_constraintStart_toStartOf="@+id/color6"
-        app:layout_constraintTop_toBottomOf="@+id/color6" />
+        app:layout_constraintStart_toEndOf="@+id/color10"
+        app:layout_constraintTop_toTopOf="@+id/color10" />
 
     <Button
         android:id="@+id/color12"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
         app:backgroundTint="@color/color12"
-        app:layout_constraintStart_toStartOf="@+id/color7"
-        app:layout_constraintTop_toBottomOf="@+id/color7" />
+        app:layout_constraintStart_toEndOf="@+id/color11"
+        app:layout_constraintTop_toTopOf="@+id/color11" />
 
     <Button
         android:id="@+id/color13"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
         app:backgroundTint="@color/color13"
-        app:layout_constraintStart_toStartOf="@+id/color8"
-        app:layout_constraintTop_toBottomOf="@+id/color8" />
+        app:layout_constraintStart_toEndOf="@+id/color12"
+        app:layout_constraintTop_toTopOf="@+id/color12" />
 
     <Button
         android:id="@+id/color14"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
         app:backgroundTint="@color/color14"
-        app:layout_constraintStart_toStartOf="@+id/color9"
-        app:layout_constraintTop_toBottomOf="@+id/color9" />
+        app:layout_constraintStart_toEndOf="@+id/color13"
+        app:layout_constraintTop_toTopOf="@+id/color13" />
 
     <Button
         android:id="@+id/color15"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/ring"
         app:backgroundTint="@color/color15"
-        app:layout_constraintStart_toStartOf="@+id/color10"
-        app:layout_constraintTop_toBottomOf="@+id/color10" />
+        app:layout_constraintStart_toEndOf="@+id/color14"
+        app:layout_constraintTop_toTopOf="@+id/color14" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
