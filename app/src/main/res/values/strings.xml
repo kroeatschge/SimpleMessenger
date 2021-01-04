@@ -13,7 +13,8 @@
     <string name="desc_plane">a paper plane flying</string>
 
     <string name="setting_background">Background colour</string>
-
+    <string name="check_email">Please enter a valid email address!</string>
+    <string name="check_message">Please enter a message first</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>

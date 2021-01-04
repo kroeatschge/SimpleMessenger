@@ -3,29 +3,16 @@ package com.kro.simplemessenger;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.util.Patterns;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.navigation.NavController;
-import androidx.navigation.NavHost;
-import androidx.navigation.NavHostController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-
-import android.view.View;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
 
 public class MainActivity extends AppCompatActivity {
     private EditText myEmail;
@@ -55,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-
         //get reference to view
         myEmail = findViewById(R.id.editEmail);
         myMessage = findViewById(R.id.editMessage);
@@ -76,6 +62,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Author: adityamshidlyali, geeksforgeeks.org
+     * Title: Implement Email Validator in Android
+     * Date: 14/12/2020
+     * Source: https://www.geeksforgeeks.org/implement-email-validator-in-android/
+     * @param checkMail EditText to be checked
+     * @return true if correct email address
+     */
+    public boolean emailValidator(EditText checkMail){
+        // extract the entered data from the EditText
+        String emailToText = checkMail.getText().toString();
+
+        // Android offers the inbuilt patterns which the entered
+        // data from the EditText field needs to be compared with
+        // In this case the the entered data needs to compared with
+        // the EMAIL_ADDRESS, which is implemented same below
+        if (!emailToText.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailToText).matches()) {
+            return true;
+        } else {
+            Toast.makeText(this,getString(R.string.check_email), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+    }
+
+    /**
      * handle send click with another APP
      * Author: Dawn Griffiths & David Griffiths
      * Date: 2015
@@ -89,14 +100,25 @@ public class MainActivity extends AppCompatActivity {
         String emailTo[] = new String[1];
         emailTo[0] = myEmail.getText().toString();
 
-        //setup intent
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        //add messsage and email
-        intent.putExtra(Intent.EXTRA_TEXT, messageText);
-        intent.putExtra(Intent.EXTRA_EMAIL, emailTo);
-        //send intend to android and always show chooser
-        startActivity(Intent.createChooser(intent, getResources().getText(R.string.app_name)));
+        //check message entered
+        if(messageText.equals("")){
+            Toast.makeText(this,getString(R.string.check_message), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        //check email entered
+        if(emailValidator(myEmail)) {
+            //setup intent
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            //add messsage and email
+            intent.putExtra(Intent.EXTRA_TEXT, messageText);
+            intent.putExtra(Intent.EXTRA_EMAIL, emailTo);
+            //send intend to android and always show chooser
+            startActivity(Intent.createChooser(intent, getResources().getText(R.string.app_name)));
+        }
+
+
     }
 
     @Override
