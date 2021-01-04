@@ -1,5 +1,6 @@
 package com.kro.simplemessenger;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -18,10 +19,14 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText myEmail;
+    private EditText myMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +35,30 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //get reference to view
+        myEmail = findViewById(R.id.editEmail);
+        myMessage = findViewById(R.id.editMessage);
 
+        //add onFocusChangeListener
+       //myEmail.setOnFocusChangeListener(onFocusChange());
 
     }
+
+    /**
+     * hide the keyboard
+     * @param view
+     */
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    public void onFocusChange(View view, boolean hasFocus) {
+        if (!hasFocus) {
+            hideKeyboard(view);
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
