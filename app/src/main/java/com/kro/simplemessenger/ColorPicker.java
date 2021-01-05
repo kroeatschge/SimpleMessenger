@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.preference.PreferenceManager;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -16,12 +17,50 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class ColorPicker extends AppCompatActivity {
-    private String myColorText = "";
+    private String myColorText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_picker);
+
+        //set the colour taken from settings as background
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        if (savedInstanceState != null) {
+            myColorText = savedInstanceState.getString("myColorText");
+        }else {
+            myColorText = sharedPref.getString("backgroundColor", "");
+        }
+
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString("myColorText", myColorText);
+    }
+
+    /**
+     * onResume set the background color of the view
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ViewGroup myLayout;
+
+        /**
+         * set backgroundColor of view
+         * Title: Set Background color programmatically
+         * Author: Piyush
+         * Date: 07/05/2014
+         * Source: https://stackoverflow.com/questions/23517879/set-background-color-programmatically
+         */
+        //get reference to the view
+        myLayout = (ConstraintLayout) findViewById(R.id.portrait);
+        if (myLayout == null){
+            myLayout = (ConstraintLayout) findViewById(R.id.landscape);
+        }
+        myLayout.setBackgroundColor(Color.parseColor(myColorText));
     }
 
     /**
