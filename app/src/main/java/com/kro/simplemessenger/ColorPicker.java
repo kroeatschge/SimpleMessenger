@@ -2,10 +2,14 @@ package com.kro.simplemessenger;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.preference.PreferenceManager;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -22,9 +26,10 @@ public class ColorPicker extends AppCompatActivity {
 
     /**
      * Handle ColorPicker clicks
+     *
      * @param view current view element
      */
-    public void onColorPicker(View view){
+    public void onColorPicker(View view) {
         Button myButton = (Button) findViewById(view.getId());
 
         /**
@@ -47,8 +52,8 @@ public class ColorPicker extends AppCompatActivity {
         Integer myColor = getResources().getColor(colorId);
 
         //set the class attribute to remember the selected color
-        myColorText =  getResources().getString(colorId);
-        Toast.makeText(this, myColorText, Toast.LENGTH_SHORT).show();
+        myColorText = getResources().getString(colorId);
+        //Toast.makeText(this, myColorText, Toast.LENGTH_SHORT).show();
 
         //get reference to the parent view and set its color
         ViewGroup myLayout;
@@ -58,10 +63,29 @@ public class ColorPicker extends AppCompatActivity {
 
     /**
      * save the currently selected color as background
-      * @param view current view element
+     * @param view current view element
      */
-    public void onSaveClick(View view){
-        Toast.makeText(this, myColorText, Toast.LENGTH_SHORT).show();
+    public void onSaveClick(View view) {
+
+        /**
+         * get settings editor
+         * Author: Michael Yaworski
+         * Title: How to save app settings?
+         * Date: 14/10/2013
+         * Source: https://stackoverflow.com/questions/19353758/how-to-save-app-settings
+         */
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String bgColor = sharedPref.getString("backgroundColor", "");
+
+        SharedPreferences.Editor prefEditor = sharedPref.edit();
+        prefEditor.putString("backgroundColor", myColorText);
+        prefEditor.commit();
+
+        Toast.makeText(this, "Background colour saved: " + myColorText, Toast.LENGTH_SHORT).show();
+
+        //end the activity
+        finish();
+
     }
 
 }

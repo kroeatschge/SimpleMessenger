@@ -5,8 +5,15 @@ Title: How to create ring shape drawable in android?
 Date: 05/06/2015
 Source: https://stackoverflow.com/questions/30676208/how-to-create-ring-shape-drawable-in-android/30677289
 -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-    <solid android:color="#4d4d4d" />
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<item>
+    <shape android:shape="oval">
+        <!-- background -->
+        <solid android:color="@color/color1" />        <!-- border -->
+        <stroke android:width="2dp" android:color="@color/white" />
 
+        <!-- corner roundness -->
+        <corners android:radius="2dp" />
+    </shape>
+</item>
+</selector>

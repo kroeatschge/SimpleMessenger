@@ -7,7 +7,7 @@
 
     <string name="previous">Previous</string>
     <string name="hint_email">Email</string>
-    <string name="hint_message">Type your message here...</string>
+    <string name="hint_message">Type your message here…</string>
     <string name="label_email">To:</string>
     <string name="button_send">Send</string>
     <string name="button_save">Save</string>
@@ -21,12 +21,16 @@
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_mysettings">Settings</string>
 
-    <!-- Preference Titles -->
+    <!-- Preferences -->
     <string name="background_header">Background</string>
+    <string name="setting_background">Background colour</string>
+    <string name="setting_saved">Setting saved</string>
+
+
     <string name="sync_header">Sync</string>
 
     <!-- Messages Preferences -->
-    <string name="setting_background">Background colour</string>
+
     <string name="signature_title">Your signature</string>
     <string name="reply_title">Default reply action</string>
 

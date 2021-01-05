@@ -64,6 +64,17 @@ public class MainActivity extends AppCompatActivity {
          * Source: https://developer.android.com/codelabs/android-training-adding-settings-to-app#3
          */
         PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false);
+
+    }
+
+
+
+    /**
+     * onResume set the background color of the view
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
         //set the colour taken from settings as background
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         String bgColor = sharedPref.getString("backgroundColor", "");
@@ -78,9 +89,7 @@ public class MainActivity extends AppCompatActivity {
         //get reference to the view
         mainLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
         mainLayout.setBackgroundColor(Color.parseColor(bgColor));
-
     }
-
 
     /**
      * hide the keyboard when losing focus

@@ -4,7 +4,7 @@
         <EditTextPreference
             app:key="backgroundColor"
             app:title="@string/setting_background"
-            app:defaultValue="#FFFFFF"
+            app:defaultValue="#7CFFFFFF"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
