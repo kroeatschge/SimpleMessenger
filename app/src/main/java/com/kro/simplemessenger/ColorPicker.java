@@ -114,7 +114,6 @@ public class ColorPicker extends AppCompatActivity {
          * Source: https://stackoverflow.com/questions/19353758/how-to-save-app-settings
          */
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String bgColor = sharedPref.getString("backgroundColor", "");
 
         SharedPreferences.Editor prefEditor = sharedPref.edit();
         prefEditor.putString("backgroundColor", myColorText);

@@ -23,7 +23,6 @@ import androidx.preference.PreferenceManager;
 public class MainActivity extends AppCompatActivity {
     private EditText myEmail;
     private EditText myMessage;
-    private ViewGroup mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         /**
+         * implement OnFocusChangeListener
          * Author: Ian
          * Title: EditText setOnFocusChangeListener on all EditTexts
          * Date: 01/05/2013
          * Source: https://stackoverflow.com/questions/16311609/edittext-setonfocuschangelistener-on-all-edittexts
          */
-        //implement OnFocusChangeListener
         View.OnFocusChangeListener myFocusListener = new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -87,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
          * Source: https://stackoverflow.com/questions/23517879/set-background-color-programmatically
          */
         //get reference to the view
-        mainLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
+        ViewGroup mainLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
         mainLayout.setBackgroundColor(Color.parseColor(bgColor));
     }
 
@@ -136,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
     public void onSendClick(View view) {
         //get message and email
         String messageText = myMessage.getText().toString();
-        String emailTo[] = new String[1];
+        String[] emailTo = new String[1];
         emailTo[0] = myEmail.getText().toString();
 
         //check message entered
