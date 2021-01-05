@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /**
-         * implement OnFocusChangeListener
-         * Author: Ian
-         * Title: EditText setOnFocusChangeListener on all EditTexts
-         * Date: 01/05/2013
-         * Source: https://stackoverflow.com/questions/16311609/edittext-setonfocuschangelistener-on-all-edittexts
+        /*
+          implement OnFocusChangeListener
+          Author: Ian
+          Title: EditText setOnFocusChangeListener on all EditTexts
+          Date: 01/05/2013
+          Source: https://stackoverflow.com/questions/16311609/edittext-setonfocuschangelistener-on-all-edittexts
          */
         View.OnFocusChangeListener myFocusListener = new View.OnFocusChangeListener() {
             @Override
@@ -55,12 +54,12 @@ public class MainActivity extends AppCompatActivity {
         myEmail.setOnFocusChangeListener(myFocusListener);
         myMessage.setOnFocusChangeListener(myFocusListener);
 
-        /**
-         * initialise default values for settings
-         * Author: android.developer.com
-         * Title: Android fundamentals 09.2: App settings
-         * Date: n.d.
-         * Source: https://developer.android.com/codelabs/android-training-adding-settings-to-app#3
+        /*
+          initialise default values for settings
+          Author: android.developer.com
+          Title: Android fundamentals 09.2: App settings
+          Date: n.d.
+          Source: https://developer.android.com/codelabs/android-training-adding-settings-to-app#3
          */
         PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false);
 
@@ -78,12 +77,12 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         String bgColor = sharedPref.getString("backgroundColor", "");
 
-        /**
-         * set backgroundColor of view
-         * Title: Set Background color programmatically
-         * Author: Piyush
-         * Date: 07/05/2014
-         * Source: https://stackoverflow.com/questions/23517879/set-background-color-programmatically
+        /*
+          set backgroundColor of view
+          Title: Set Background color programmatically
+          Author: Piyush
+          Date: 07/05/2014
+          Source: https://stackoverflow.com/questions/23517879/set-background-color-programmatically
          */
         //get reference to the view
         ViewGroup mainLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
@@ -149,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
             //setup intent
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            //add messsage and email
+            //add message and email
             intent.putExtra(Intent.EXTRA_TEXT, messageText);
             intent.putExtra(Intent.EXTRA_EMAIL, emailTo);
             //send intend to android and always show chooser
@@ -166,28 +165,17 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * handle click on menu item
+     * @param item item that was clicked
+     * @return boolean Return false to allow normal menu processing to proceed, true to consume it here.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            /**
-             * Source: https://stackoverflow.com/questions/53902494/navigation-component-cannot-find-navcontroller
-             * Author: JunaidKhan
-             * Date: 03/12/2019
-             * Title: Navigation Component: Cannot find NavController
-             */
-            // Navigation.findNavController(this,R.id.nav_host_fragment).navigate(R.id.action_FirstFragment_to_SecondFragment);
-
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
-
-
-        }
 
         //show Activity with color picker
         if (id == R.id.action_mysettings) {
